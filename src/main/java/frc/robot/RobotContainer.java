@@ -97,18 +97,18 @@ public class RobotContainer {
         () -> {
           int pov = controller.getHID().getPOV();
           if (pov == 90 || pov == 45 || pov == 135)
-            return 1.0;
+            return -4.0;
           else if (pov == 270 || pov == 225 || pov == 315)
-            return -1.0;
+            return 4.0;
           else
             return 0.0;
         },
         () -> {
           int pov = controller.getHID().getPOV();
           if (pov == 0 || pov == 45 || pov == 315)
-            return 1.0;
+            return 4.0;
           else if (pov == 180 || pov == 135 || pov == 225)
-            return -1.0;
+            return -4.0;
           else
             return 0.0;
         },
@@ -126,6 +126,10 @@ public class RobotContainer {
   public Command getAutonomousCommand() {
 
     return AutoBuilder.buildAuto(autoChooser.getSelected().getName());
+  }
+  
+  public void autonomousPeriodic() {
+    drivetrainSubsystem.setPose(drivetrainSimulation.getSimulatedDriveTrainPose()); //update odometry for path planning (this will not be used in reality)
   }
 
   public void periodic() {
