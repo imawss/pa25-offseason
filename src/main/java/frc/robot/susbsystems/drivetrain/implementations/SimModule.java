@@ -13,9 +13,9 @@ import edu.wpi.first.math.kinematics.SwerveModuleState;
 import edu.wpi.first.units.measure.Angle;
 import edu.wpi.first.units.measure.Voltage;
 import frc.robot.constants.ModuleConstants;
-import frc.robot.susbsystems.drivetrain.interfaces.ModuleInterface;;
+import frc.robot.susbsystems.drivetrain.interfaces.IModuleInterface;;
 
-public class SimModule implements ModuleInterface {
+public class SimModule implements IModuleInterface {
 
   private final SwerveModuleSimulation moduleSimulation;
 

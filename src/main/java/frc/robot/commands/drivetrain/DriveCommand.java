@@ -42,6 +42,7 @@ public class DriveCommand extends Command {
     public void execute() {
         xInput = xSupplier.get();
         yInput = ySupplier.get();
+
         rInput = rSupplier.get();
 
         drivetrainSubsystem.drive(yInput, xInput, rInput, driveType);

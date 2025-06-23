@@ -17,7 +17,7 @@ public class RobotConstants {
 
     public static Pose2d BLUE_START = new Pose2d(
             Meters.of(7.30),
-            Meters.of(6.18),
+            Meters.of(1),
             Rotation2d.fromDegrees(0));
 
     public static Pose2d INITIAL_POSE = BLUE_START;

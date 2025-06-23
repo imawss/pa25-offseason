@@ -3,9 +3,9 @@ package frc.robot.susbsystems.drivetrain.implementations;
 import org.ironmaple.simulation.drivesims.GyroSimulation;
 
 import edu.wpi.first.math.geometry.Rotation2d;
-import frc.robot.susbsystems.drivetrain.interfaces.GyroInterface;
+import frc.robot.susbsystems.drivetrain.interfaces.IGyroInterface;
 
-public class SimGyro implements GyroInterface{
+public class SimGyro implements IGyroInterface{
 
   private final GyroSimulation gyroSimulation;
 

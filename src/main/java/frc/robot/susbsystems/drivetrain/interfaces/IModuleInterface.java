@@ -5,7 +5,7 @@ import edu.wpi.first.math.kinematics.SwerveModuleState;
 import edu.wpi.first.units.measure.Angle;
 import edu.wpi.first.units.measure.Voltage;
 
-public interface ModuleInterface {
+public interface IModuleInterface {
 
     void setDriveMotorVoltage(Voltage voltage);
 

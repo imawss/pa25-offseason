@@ -15,26 +15,26 @@ import frc.robot.constants.AutoConstants;
 import frc.robot.constants.DrivetrainConstants;
 import frc.robot.constants.RobotConstants;
 import frc.robot.susbsystems.drivetrain.enums.DriveType;
-import frc.robot.susbsystems.drivetrain.interfaces.GyroInterface;
-import frc.robot.susbsystems.drivetrain.interfaces.ModuleInterface;
+import frc.robot.susbsystems.drivetrain.interfaces.IGyroInterface;
+import frc.robot.susbsystems.drivetrain.interfaces.IModuleInterface;
 import frc.robot.utils.Logger;
 
 public class DrivetrainSubsystem extends SubsystemBase {
 
     private final SwerveDrivePoseEstimator estimator;
 
-    private final GyroInterface gyro;
+    private final IGyroInterface gyro;
 
-    private final ModuleInterface frontLeft, frontRight, backLeft, backRight;
+    private final IModuleInterface frontLeft, frontRight, backLeft, backRight;
 
     private final PPHolonomicDriveController driveController;
 
     public DrivetrainSubsystem(
-            GyroInterface gyro,
-            ModuleInterface frontLeft,
-            ModuleInterface frontRight,
-            ModuleInterface backLeft,
-            ModuleInterface backRight) {
+            IGyroInterface gyro,
+            IModuleInterface frontLeft,
+            IModuleInterface frontRight,
+            IModuleInterface backLeft,
+            IModuleInterface backRight) {
 
         this.gyro = gyro;
         this.frontLeft = frontLeft;
@@ -154,8 +154,8 @@ public class DrivetrainSubsystem extends SubsystemBase {
         estimator.resetPose(pose);
     }
 
-    public ModuleInterface[] getModules() {
-        return new ModuleInterface[] {
+    public IModuleInterface[] getModules() {
+        return new IModuleInterface[] {
                 this.frontLeft,
                 this.frontRight,
                 this.backLeft,
