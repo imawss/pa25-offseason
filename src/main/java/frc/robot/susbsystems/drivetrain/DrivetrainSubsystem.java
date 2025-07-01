@@ -51,7 +51,8 @@ public class DrivetrainSubsystem extends SubsystemBase {
         this.driveController = new PPHolonomicDriveController(
                 AutoConstants.DRIVE_PID,
                 AutoConstants.ANGLE_PID);
-
+            
+        //Configure the PathPlanner Autonomous Configuration
         AutoBuilder.configure(
                 this::getPose,
                 this::setPose,
@@ -68,6 +69,7 @@ public class DrivetrainSubsystem extends SubsystemBase {
     @Override
     public void periodic() {
 
+        // Update the pose estimator with the current module positions and gyro angle
         this.estimator.update(this.getRotation2d(), this.getModulePositions());
 
         Logger.log("Drivetrain/Poses/OdometryPose", this.getPose());
@@ -87,7 +89,7 @@ public class DrivetrainSubsystem extends SubsystemBase {
     }
 
     public void setModuleStates(SwerveModuleState[] moduleStates) {
-
+        // Ensure the module states are desaturated to prevent exceeding maximum speed
         SwerveDriveKinematics.desaturateWheelSpeeds(moduleStates, RobotConstants.MAX_SPEED);
 
         this.frontLeft.setModuleState(moduleStates[0]);
@@ -99,7 +101,7 @@ public class DrivetrainSubsystem extends SubsystemBase {
     }
 
     public void drive(double xSpeed, double ySpeed, double rSpeed, DriveType driveType) {
-
+        
         ChassisSpeeds speeds = new ChassisSpeeds(xSpeed, ySpeed, rSpeed);
 
         if (driveType == DriveType.RobotRelative) {

@@ -14,8 +14,8 @@ import edu.wpi.first.units.measure.Voltage;
 import frc.robot.constants.ModuleConstants;
 import frc.robot.susbsystems.drivetrain.interfaces.IModuleInterface;
 
-public class PhoenixModule implements IModuleInterface {
-
+public class PhoenixModule implements IModuleInterface { // W.I.P Not fully implemented yet
+    // Constants for the module
     private TalonFX driveMotor;
     private TalonFXConfiguration driveConfig;
 
