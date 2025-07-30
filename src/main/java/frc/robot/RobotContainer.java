@@ -72,47 +72,15 @@ public class RobotContainer {
     this.robotRelativeDriveCommand = new DriveCommand(
         drivetrainSubsystem,
         DriveType.RobotRelative,
-        () -> {
-          int pov = controller.getHID().getPOV();
-          if (pov == 90 || pov == 45 || pov == 135)
-            return 1.0;
-          else if (pov == 270 || pov == 225 || pov == 315)
-            return -1.0;
-          else
-            return 0.0;
-        },
-        () -> {
-          int pov = controller.getHID().getPOV();
-          if (pov == 0 || pov == 45 || pov == 315)
-            return 1.0;
-          else if (pov == 180 || pov == 135 || pov == 225)
-            return -1.0;
-          else
-            return 0.0;
-        },
+        () -> Math.abs(controller.getLeftX()) > ControllerConstants.DEADBAND ? controller.getLeftX() * -5 : 0,
+        () -> Math.abs(controller.getLeftY()) > ControllerConstants.DEADBAND ? controller.getLeftY() * -5 : 0,
         () -> Math.abs(controller.getRightX()) > ControllerConstants.DEADBAND ? controller.getRightX() * -5 : 0);
 
     this.fieldRelativeDriveCommand = new DriveCommand(
         drivetrainSubsystem,
         DriveType.FieldRelative,
-        () -> {
-          int pov = controller.getHID().getPOV();
-          if (pov == 90 || pov == 45 || pov == 135)
-            return -4.0;
-          else if (pov == 270 || pov == 225 || pov == 315)
-            return 4.0;
-          else
-            return 0.0;
-        },
-        () -> {
-          int pov = controller.getHID().getPOV();
-          if (pov == 0 || pov == 45 || pov == 315)
-            return 4.0;
-          else if (pov == 180 || pov == 135 || pov == 225)
-            return -4.0;
-          else
-            return 0.0;
-        },
+        () -> Math.abs(controller.getLeftX()) > ControllerConstants.DEADBAND ? controller.getLeftX() * -5 : 0,
+        () -> Math.abs(controller.getLeftY()) > ControllerConstants.DEADBAND ? controller.getLeftY() * -5 : 0,
         () -> Math.abs(controller.getRightX()) > ControllerConstants.DEADBAND ? controller.getRightX() * -5 : 0);
 
     configureBindings();
