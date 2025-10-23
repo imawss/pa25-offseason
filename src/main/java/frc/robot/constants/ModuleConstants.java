@@ -13,7 +13,7 @@ import edu.wpi.first.units.measure.Distance;
 public class ModuleConstants {
     public static final Current DRIVE_CURRENT_LIMIT = Amps.of(60);
     public static final Current ANGLE_CURRENT_LIMIT = Amps.of(40);
-
+    
     public static final double DRIVE_P = 20;
     public static final double DRIVE_I = 0.0;
     public static final double DRIVE_D = 0.0;
